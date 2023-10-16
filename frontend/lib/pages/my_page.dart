@@ -1,5 +1,5 @@
 import 'package:beautyminder/pages/pouch_page.dart';
-import 'package:beautyminder/pages/todo_page.dart';
+import 'package:beautyminder/pages/todo/todo_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
