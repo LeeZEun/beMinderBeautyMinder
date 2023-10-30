@@ -3,6 +3,7 @@ class User {
     required this.id,
     required this.email,
     required this.password,
+    this.phoneNumber,
     this.nickname,
     this.profileImage,
     required this.createdAt,
@@ -12,6 +13,7 @@ class User {
   late final String id;
   late final String email;
   late final String password;
+  late final String? phoneNumber;
   late final String? nickname;
   late final String? profileImage;
   late final DateTime createdAt;
@@ -25,6 +27,7 @@ User {
   id: $id,
   email: $email,
   password: $password,
+  phoneNumber: $phoneNumber,
   nickname: $nickname,
   profileImage: $profileImage,
   createdAt: $createdAt,
@@ -37,6 +40,7 @@ User {
       id: json['id'],
       email: json['email'],
       password: json['password'],
+      phoneNumber: json['phoneNumber'],
       nickname: json['nickname'],
       profileImage: json['profileImage'],
       createdAt: DateTime.parse(json['createdAt']),
@@ -51,6 +55,7 @@ User {
       'id': id,
       'email': email,
       'password': password,
+      'phoneNumber': phoneNumber,
       'nickname': nickname,
       'profileImage': profileImage,
       'createdAt': createdAt.toIso8601String(),

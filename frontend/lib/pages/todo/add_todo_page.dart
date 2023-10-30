@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:beautyminder/pages/todo/viewmodel/todo_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:beautyminder/presentation/todo/todo_view_model.dart';
 import 'package:provider/provider.dart';
 
 class AddTodoPage extends StatefulWidget {

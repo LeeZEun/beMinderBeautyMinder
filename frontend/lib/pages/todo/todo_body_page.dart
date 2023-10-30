@@ -1,11 +1,10 @@
 import 'package:beautyminder/models/todo_model.dart';
 import 'package:beautyminder/pages/todo/update_todo_page.dart';
-import 'package:beautyminder/presentation/todo/widgets/pop_up.dart';
+import 'package:beautyminder/pages/todo/viewmodel/todo_view_model.dart';
+import 'package:beautyminder/pages/todo/widgets/pop_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
-
-import '../../presentation/todo/todo_view_model.dart';
 
 class TodoBodyPage extends StatelessWidget {
   const TodoBodyPage({Key? key}) : super(key: key);

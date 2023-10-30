@@ -6,7 +6,7 @@ import '../widget/commonAppBar.dart';
 import '../widget/commonBottomNavigationBar.dart';
 import 'home_page.dart';
 import 'hot_page.dart';
-import 'my_page.dart';
+import 'my/my_page.dart';
 
 class PouchPage extends StatefulWidget {
   const PouchPage({Key? key}) : super(key: key);

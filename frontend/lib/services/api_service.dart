@@ -117,7 +117,42 @@ class APIService {
       return Result.failure("An error occurred: $e");
     }
   }
+
+  static Future<Result<User>> updateUserProfile(String? nickName, String? password) async {
+    // 로그인 상세 정보 가져오기
+    final user = await SharedService.getUser();
+    final accessToken = await SharedService.getAccessToken();
+    final refreshToken = await SharedService.getRefreshToken();
+    final userId = user?.id ?? '-1';
+
+    // URL 생성
+    final url = Uri.http(Config.apiURL, Config.userProfileUpdateAPI + userId).toString();
+
+    // 헤더 설정
+    final headers = {
+      'Authorization': 'Bearer $accessToken',
+      'Cookie': 'XRT=$refreshToken',  // 리프레시 토큰 적용
+    };
+
+    try {
+      // GET 요청
+      final response = await client.patch(
+        url,
+        options: _httpOptions('PATCH', headers),
+      );
+
+      if (response.statusCode == 200) {
+        // 사용자 정보 파싱
+        final user = User.fromJson(response.data as Map<String, dynamic>);
+        return Result.success(user);
+      }
+      return Result.failure("Failed to get user profile");
+    } catch (e) {
+      return Result.failure("An error occurred: $e");
+    }
+  }
 }
+
 
 // 결과 클래스
 class Result<T> {

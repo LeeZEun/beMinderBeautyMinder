@@ -1,18 +1,17 @@
 import 'dart:io';
 
 import 'package:beautyminder/models/todo_model.dart';
+import 'package:beautyminder/pages/todo/viewmodel/todo_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-
-import '../../presentation/todo/todo_view_model.dart';
 
 class UpdateTodoPage extends StatefulWidget {
   final int id;
   final TodoModel todo;
 
   const UpdateTodoPage({
-    Key? key,
+    super.key,
     required this.id,
     required this.todo,
   });

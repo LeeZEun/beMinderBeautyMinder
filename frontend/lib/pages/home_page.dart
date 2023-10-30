@@ -6,10 +6,11 @@ import '../dto/user_model.dart';
 import '../services/shared_service.dart';
 import '../services/todo_service.dart';
 import '../dto/todo_model.dart';
+import '../utils/Utils.dart';
 import '../widget/commonAppBar.dart';
 import '../widget/commonBottomNavigationBar.dart';
 import 'hot_page.dart';
-import 'my_page.dart';
+import 'my/my_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -110,22 +111,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: CommonBottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
-          // 페이지 전환 로직 추가
-          if (index == 0) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HotPage()));
-          }
-          else if (index == 1) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PouchPage()));
-          }
-          else if (index == 2) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomePage()));
-          }
-          else if (index == 3) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TodoPage()));
-          }
-          else if (index == 4) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MyPage()));
-          }
+          commonOnTapBottomNavigationBar(index, _currentIndex, context);
         }
 
       ),

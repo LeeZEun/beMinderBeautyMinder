@@ -1,9 +1,9 @@
+import 'package:beautyminder/pages/todo/viewmodel/todo_view_model.dart';
+import 'package:beautyminder/pages/todo/widgets/pop_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:beautyminder/pages/todo/update_todo_page.dart';
-import 'package:beautyminder/presentation/todo/widgets/pop_up.dart';
-import 'package:beautyminder/presentation/todo/page_view_model.dart';
-import 'package:beautyminder/presentation/todo/todo_view_model.dart';
+import 'package:beautyminder/pages/todo/viewmodel/page_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -29,9 +29,6 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Calendar'),
-      ),
       body: SafeArea(
         child: Column(
           children: [

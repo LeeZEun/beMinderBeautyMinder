@@ -1,13 +1,15 @@
 import 'package:beautyminder/pages/home_page.dart';
 import 'package:beautyminder/pages/hot_page.dart';
-import 'package:beautyminder/pages/my_page.dart';
+import 'package:beautyminder/pages/my/my_page.dart';
 import 'package:beautyminder/pages/pouch_page.dart';
 import 'package:beautyminder/pages/todo/todo_body_page.dart';
 import 'package:beautyminder/widget/commonBottomNavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../presentation/todo/page_view_model.dart';
+import '../../utils/Utils.dart';
+import '../../widget/commonAppBar.dart';
+import 'viewmodel/page_view_model.dart';
 import 'add_todo_page.dart';
 import 'calendar_page.dart';
 
@@ -19,6 +21,7 @@ class TodoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final pageViewModel = context.watch<PageViewModel>();
     return Scaffold(
+      appBar: CommonAppBar(),
       body:
           pageViewModel.showCalendar ? const CalendarPage() : const TodoBodyPage(),
       floatingActionButton: Column(
@@ -51,22 +54,7 @@ class TodoPage extends StatelessWidget {
       bottomNavigationBar: CommonBottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (int index) {
-            // 페이지 전환 로직 추가
-            if (index == 0) {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HotPage()));
-            }
-            else if (index == 1) {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PouchPage()));
-            }
-            else if (index == 2) {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomePage()));
-            }
-            else if (index == 3) {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TodoPage()));
-            }
-            else if (index == 4) {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MyPage()));
-            }
+            commonOnTapBottomNavigationBar(index, _currentIndex, context);
           }
 
       ),

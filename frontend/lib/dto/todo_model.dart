@@ -22,7 +22,7 @@ class Todo {
   String toString() {
     return '''
 Todo {
-  id: $id, 
+  id: $id,
   date: $date,
   morningTasks: $morningTasks,
   dinnerTasks: $dinnerTasks,
