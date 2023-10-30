@@ -1,10 +1,11 @@
-import 'package:beautyminder/pages/hot_page.dart';
-import 'package:beautyminder/pages/my/my_page.dart';
+
+import 'package:beautyminder/pages/my_page.dart';
 import 'package:beautyminder/pages/pouch_page.dart';
+import 'package:beautyminder/pages/recommend_page.dart';
 import 'package:beautyminder/pages/todo/todo_page.dart';
 import 'package:beautyminder/pages/todo/viewmodel/page_view_model.dart';
 import 'package:beautyminder/pages/todo/viewmodel/todo_view_model.dart';
-import 'package:beautyminder/repository/repository.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -23,16 +24,6 @@ import 'repository/datasource/datasource.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Get result of the login function.
-  // bool _result = await SharedService.isLoggedIn();
-  // if (_result) {
-  //   _defaultHome = const HomePage();
-  // }
-  //
-  // setupAuthClient();
-
-  await AppDatasource.register();
-  await AppRepository.register();
   runApp(const MyApp());
 }
 
@@ -58,14 +49,14 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: const LoginPage(),
-      home: const HomePage(),
+      home: LoginPage(),
       routes: {
         // '/': (context) => _defaultHome,
         '/login': (context) => const LoginPage(),
         '/register': (context) => RegisterPage(),
-        '/hot': (context) => const HotPage(),
+        '/recommend': (context) => const RecPage(),
         '/pouch': (context) => const PouchPage(),
-        // '/home': (context) => const HomePage(),
+        '/home': (context) => const HomePage(),
         '/todo': (context) => const TodoPage(),
         '/my': (context) => MultiBlocProvider(
               providers: [
